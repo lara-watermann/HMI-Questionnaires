@@ -6,26 +6,29 @@ import Footer from "./components/Footer";
 
 type Filters = {
   scales: string[];
-  time: Time;
+  time: Time | "";
   language: string;
+  scaleSearch: string;
 };
+
+const base = import.meta.env.BASE_URL;
 
 const getIconForLink = (linkType: string): string | null => {
   switch (linkType) {
     case "website":
       // LICENSE: https://www.flaticon.com/free-icon/globe_900782?term=globe&page=1&position=2&origin=search&related_id=900782
-      return "/globe.png";
+      return base + "globe.png";
     case "doi":
       // LICENSE: Public Domain
       // Source: https://commons.wikimedia.org/wiki/File:DOI_logo.svg#Licensing
-      return "/doi.svg";
+      return base + "doi.svg";
     case "git":
       // LICENSE: Creative Commons Attribution 3.0 Unported License
       // Source: https://git-scm.com/downloads/logos
-      return "/Git-Icon-Black.svg";
+      return base + "Git-Icon-Black.svg";
     case "osf":
       // LICENSE: CC0 1.0 Universal
-      return "/osf.svg";
+      return base + "osf.svg";
     default:
       return null;
   }
@@ -35,8 +38,9 @@ const App: React.FC = () => {
   const [search, setSearch] = useState<string>("");
   const [filters, setFilters] = useState<Filters>({
     scales: [],
-    time: undefined,
+    time: "",
     language: "",
+    scaleSearch: "",
   });
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,8 +92,7 @@ const App: React.FC = () => {
           <p>
             This is a collection of questionnaires used in the field of
             Human-Machine Interaction (HMI). You can filter the questionnaires
-            by various criteria such as scales, methodology, time, language, and
-            validation status.
+            by various criteria such as scales, timing, and language.
           </p>
         </div>
 
@@ -194,7 +197,7 @@ const App: React.FC = () => {
             </div>
 
             <img
-              src="/THA_Logo_S_Red_RGB_EN.svg"
+              src="/HMI-Questionnaires/THA_Logo_S_Red_RGB_EN.svg"
               alt="Logo"
               style={{ width: "100%", height: "auto", marginTop: "20px" }}
             />
