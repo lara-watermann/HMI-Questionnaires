@@ -68,6 +68,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
             .filter((scale) =>
               scale.toLowerCase().includes(filters.scaleSearch || "")
             )
+            .sort((a, b) => a.localeCompare(b))
             .map((scale) => (
               <button
                 key={scale}
