@@ -1,0 +1,18 @@
+name: Check Links
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install lychee
+        run: cargo install lychee
+
+      - name: Run lychee link check
+        run: lychee --accept 200,403 ./src/** README.md -v
