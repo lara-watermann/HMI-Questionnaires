@@ -34,9 +34,8 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
     new Set(questionnaires.flatMap((q) => q.metadata.scales))
   );
 
-  const uniqueTimes = Array.from(
-    new Set(questionnaires.flatMap((q) => q.metadata.time || []))
-  );
+  // Use the predefined Time enum values
+  const timeValues: Time[] = Object.values(Time);
 
   const uniqueLanguages = Array.from(
     new Set(questionnaires.flatMap((q) => q.metadata.language || []))
@@ -98,10 +97,11 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
           id="time"
           name="time"
           className="form-select"
+          value={filters.time}
           onChange={onFilterChange}
         >
           <option value="">All</option>
-          {uniqueTimes.map((time) => (
+          {timeValues.map((time) => (
             <option key={time} value={time}>
               {time}
             </option>
@@ -115,6 +115,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
           id="language"
           name="language"
           className="form-select"
+          value={filters.language}
           onChange={onFilterChange}
         >
           <option value="">All Languages</option>

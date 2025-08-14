@@ -1,1 +1,5 @@
-export type Time = "Pre-Study" | "Post-Study" | "Standalone";
+export enum Time {
+  PreStudy = "Pre-Study",
+  PostStudy = "Post-Study",
+  Standalone = "Standalone",
+}

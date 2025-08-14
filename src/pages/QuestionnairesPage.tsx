@@ -62,14 +62,11 @@ const QuestionnairesPage: React.FC = () => {
     const matchesScales = filters.scales.length
       ? filters.scales.every((factor) => q.metadata.scales.includes(factor))
       : true;
-    let matchesTime: boolean;
-    if (filters.time == "Post-Study") {
-      matchesTime = q.metadata.time?.includes("Post-Study");
-    } else if (filters.time == "Pre-Study") {
-      matchesTime = q.metadata.time?.includes("Pre-Study");
-    } else {
-      matchesTime = true;
-    }
+
+    const matchesTime = filters.time
+      ? q.metadata.time?.includes(filters.time)
+      : true;
+
     const matchesLanguage = filters.language
       ? q.metadata.language?.includes(filters.language)
       : true;
