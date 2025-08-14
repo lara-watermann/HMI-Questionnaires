@@ -19,6 +19,24 @@ const Footer: React.FC = () => {
       >
         Privacy Policy
       </a>
+      <span className="mx-2">|</span>
+      <a
+        href="https://github.com/THA-Embedded-Systems-Lab/HMI-Questionnaires"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub Repository
+      </a>
+      <span className="mx-2">|</span>
+      <a
+        href={`https://github.com/THA-Embedded-Systems-Lab/HMI-Questionnaires/tree/${
+          import.meta.env.VITE_APP_VERSION
+        }`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        v{import.meta.env.VITE_APP_VERSION} ({import.meta.env.VITE_APP_DATE})
+      </a>
     </footer>
   );
 };

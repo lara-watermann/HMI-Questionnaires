@@ -5,8 +5,8 @@
   "homepage": "https://tha-embedded-systems-lab.github.io/HMI-Questionnaires/",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "VITE_APP_VERSION=$(git describe --tags --abbrev=0) VITE_APP_DATE=$(git log -1 --format=%ad --date=short $(git describe --tags --abbrev=0)) vite",
+    "build": "VITE_APP_VERSION=$(git describe --tags --abbrev=0) VITE_APP_DATE=$(git log -1 --format=%ad --date=short $(git describe --tags --abbrev=0)) vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
