@@ -172,6 +172,19 @@ const questionnaires: Questionnaire[] = [
       doi: 'https://doi.org/10.1007/978-3-322-80058-9_19'
     },
   },
+    {
+    name: 'Psychological assessment of AI-based decision support systems',
+    short: 'PAAI',
+    metadata: {
+      scales: ['System Characteristics', 'Task Characteristics', 'Job Characteristics'],
+      time: ['Standalone'],
+      language: ['EN'],
+      year: 2023,
+    },
+    links: {
+      doi: 'https://doi.org/10.3389/frai.2023.1249322'
+    },
+  },
 ];
 
 export default questionnaires;
