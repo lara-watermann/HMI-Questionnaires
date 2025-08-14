@@ -1,4 +1,4 @@
-export enum ScaleType {
+export enum ResponseFormat {
   Likert5 = "Likert-5",
   Likert7 = "Likert-7",
   Bipolar5 = "Bipolar-5",

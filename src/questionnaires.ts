@@ -1,186 +1,321 @@
-import { Questionnaire } from './types/Questionnaire';
+import { Questionnaire } from "./types/Questionnaire";
+import { ResponseFormat } from "./types/ResponseFormat";
+import { Time } from "./types/Time";
 
 const questionnaires: Questionnaire[] = [
   {
-    name: 'System Usability Scale',
-    short: 'SUS',
+    name: "System Usability Scale",
+    short: "SUS",
     metadata: {
-      language: ['EN', 'DE'],
-      scales: ['Usability'],
-      time: ['Post-Study'],
+      language: ["EN", "DE"],
+      scales: [{ name: "Usability" }],
+      time: [Time.PostStudy],
       year: 1996,
       items: 10,
     },
     links: {
-      website: "https://www.researchgate.net/publication/228593520_SUS_A_quick_and_dirty_usability_scale"
-    }
-
+      website:
+        "https://www.researchgate.net/publication/228593520_SUS_A_quick_and_dirty_usability_scale",
+    },
   },
   {
-    name: 'User Experience Questionnaire',
-    short: 'UEQ',
+    name: "User Experience Questionnaire",
+    short: "UEQ",
     metadata: {
-      scales: ['Attractiveness', 'Perspicuity', 'Efficiency', 'Dependability', 'Stimulation', 'Novelty', 'Hedonic', 'Pragmatic'],
-      time: ['Post-Study'],
+      scales: [
+        { name: "Attractiveness" },
+        { name: "Perspicuity" },
+        { name: "Efficiency" },
+        { name: "Dependability" },
+        { name: "Stimulation" },
+        { name: "Novelty" },
+        { name: "Hedonic" },
+        { name: "Pragmatic" },
+      ],
+      time: [Time.PostStudy],
       items: 26,
-      scaleType: 'Likert-7',
+      responseFormat: ResponseFormat.Likert7,
       year: 2005,
-      language: ['DE', 'US', 'ES', 'PT', 'TR', 'ID', 'ZH', 'FR', 'IT', 'JA', 'NL', 'RU', 'EE', 'SI', 'SV', 'PL', 'EL', 'HI', 'FA', 'BG', 'CS', 'MS', 'TH', 'DA', 'BN', 'HE', 'KN', 'MR', 'TA', 'AR', 'BS', 'HR', 'FI', 'HU', 'NO', 'SK', 'KO']
-
+      language: [
+        "DE",
+        "US",
+        "ES",
+        "PT",
+        "TR",
+        "ID",
+        "ZH",
+        "FR",
+        "IT",
+        "JA",
+        "NL",
+        "RU",
+        "EE",
+        "SI",
+        "SV",
+        "PL",
+        "EL",
+        "HI",
+        "FA",
+        "BG",
+        "CS",
+        "MS",
+        "TH",
+        "DA",
+        "BN",
+        "HE",
+        "KN",
+        "MR",
+        "TA",
+        "AR",
+        "BS",
+        "HR",
+        "FI",
+        "HU",
+        "NO",
+        "SK",
+        "KO",
+      ],
     },
     links: {
       website: "https://www.ueq-online.org",
-      doi: "http://dx.doi.org/10.1007/978-3-540-89350-9_6"
+      doi: "https://doi.org/10.1007/978-3-540-89350-9_6",
     },
   },
   {
-    name: 'User Experience Questionnaire - Short',
-    short: 'UEQ-S',
+    name: "User Experience Questionnaire - Short",
+    short: "UEQ-S",
     metadata: {
-      scales: ['Hedonic', 'Pragmatic'],
-      time: ['Post-Study'],
+      scales: [{ name: "Hedonic" }, { name: "Pragmatic" }],
+      time: [Time.PostStudy],
       items: 8,
-      scaleType: 'Likert-7',
+      responseFormat: ResponseFormat.Likert7,
       year: 2017,
-      language: ['DE', 'US', 'ES', 'PT', 'TR', 'ID', 'ZH', 'FR', 'IT', 'JA', 'NL', 'RU', 'EE', 'SI', 'SV', 'PL', 'EL', 'HI', 'FA', 'BG', 'CS', 'MS', 'TH', 'DA', 'BN', 'HE', 'KN', 'MR', 'TA', 'AR', 'BS', 'HR', 'FI', 'HU', 'NO', 'SK', 'KO']
-
+      language: [
+        "DE",
+        "US",
+        "ES",
+        "PT",
+        "TR",
+        "ID",
+        "ZH",
+        "FR",
+        "IT",
+        "JA",
+        "NL",
+        "RU",
+        "EE",
+        "SI",
+        "SV",
+        "PL",
+        "EL",
+        "HI",
+        "FA",
+        "BG",
+        "CS",
+        "MS",
+        "TH",
+        "DA",
+        "BN",
+        "HE",
+        "KN",
+        "MR",
+        "TA",
+        "AR",
+        "BS",
+        "HR",
+        "FI",
+        "HU",
+        "NO",
+        "SK",
+        "KO",
+      ],
     },
     links: {
       website: "https://www.ueq-online.org",
-      doi: "http://dx.doi.org/10.9781/ijimai.2017.09.001"
+      doi: "http://dx.doi.org/10.9781/ijimai.2017.09.001",
     },
   },
   {
-    name: 'System Acceptance Scale',
-    short: 'ACCEPTANCE SCALE',
+    name: "System Acceptance Scale",
+    short: "ACCEPTANCE SCALE",
     metadata: {
-      scales: ['Acceptance'],
-      time: ['Post-Study'],
-      language: ['EN', 'DE', "NL", "SV", "ES", "FR", "IT", "JA"],
+      scales: [
+        {
+          name: "Usefulness",
+          cronbachsAlpha: 0.813,
+        },
+        {
+          name: "Satisfying",
+          cronbachsAlpha: 0.855,
+        },
+      ],
+      participantDetails: {
+        n: 283,
+        type: ["Young", "Elderly"],
+      },
+      time: [Time.PostStudy],
+      language: ["EN", "DE", "NL", "SV", "ES", "FR", "IT", "JA"],
       year: 1997,
-      items: 9
+      items: 9,
+      responseFormat: ResponseFormat.Bipolar5,
     },
     links: {
       doi: "https://doi.org/10.1016/s0968-090x(96)00025-3",
-      website: "https://www.hfes-europe.org/accept/accept.html"
+      website: "https://www.hfes-europe.org/accept/accept.htm",
     },
+    domain: ["Automotive", "In-vehicle systems"],
+    notes: [
+      "For each scale, Cronbach's alpha is computed from the average post-study test scores across all groups to facilitate simplified reporting.",
+    ],
   },
   {
-    name: 'Negative Attitude toward Robots Scale',
-    short: 'NARS',
+    name: "Negative Attitude toward Robots Scale",
+    short: "NARS",
     metadata: {
-      // The scales are usually negative for this questionnaire, but for
-      // filtering, we invert them for better visibility.
-      scales: ['Comfort', 'Trust', 'Acceptance'],
-      time: ['Post-Study'],
+      scales: [
+        {
+          name: "Comfort",
+        },
+        {
+          name: "Trust",
+        },
+        {
+          name: "Acceptance",
+        },
+      ],
+      time: [Time.PostStudy],
       items: 14,
-      language: ['EN', 'ES', 'DE', 'FR', 'JA', 'CN'],
+      language: ["EN", "ES", "DE", "FR", "JA", "CN"],
       year: 2006,
-      scaleType: 'Likert-5'
+      responseFormat: ResponseFormat.Likert5,
     },
     links: {
       doi: "https://psycnet.apa.org/doi/10.1037/t57930-000",
-      website: "https://www.bartneck.de/2019/03/11/negative-attitudes-towards-robots-scale-nars-translations/"
+      website:
+        "https://www.bartneck.de/2019/03/11/negative-attitudes-towards-robots-scale-nars-translations/",
     },
+    notes: [
+      "The scales are usually negative for this questionnaire, but for filtering, we invert them for better visibility.",
+    ],
   },
   {
-    name: 'Attitudes toward Cooperative Industrial Robots Questionnaire',
-    short: 'ACIR-Q',
+    name: "Attitudes toward Cooperative Industrial Robots Questionnaire",
+    short: "ACIR-Q",
     metadata: {
-      scales: ['Social', 'Task', 'Affect'],
-      time: ['Pre-Study', 'Standalone'],
-      language: ['DE', 'EN'],
+      scales: [{ name: "Social" }, { name: "Task" }, { name: "Affect" }],
+      time: [Time.PreStudy, Time.Standalone],
+      language: ["DE", "EN"],
       items: 12,
-      year: 2022
+      year: 2022,
     },
     links: {
       doi: "https://doi.org/10.1007/s12369-023-00996-0",
-      osf: "https://osf.io/5fnr9/"
+      osf: "https://osf.io/5fnr9/",
     },
-    domain: ['Robot']
+    domain: ["Robot"],
   },
   {
-    name: 'Trust in Automation Questionnaire',
-    short: 'TiA',
+    name: "Trust in Automation Questionnaire",
+    short: "TiA",
     metadata: {
-      scales: ['Intent of Developers', 'Reliability', 'Predictability', 'Familiarity', 'Propensity to Trust', 'Trust in Automation'],
-      time: ['Post-Study'],
-      language: ['EN', 'DE'],
+      scales: [
+        { name: "Intent of Developers" },
+        { name: "Reliability" },
+        { name: "Predictability" },
+        { name: "Familiarity" },
+        { name: "Propensity to Trust" },
+        { name: "Trust in Automation" },
+      ],
+      time: [Time.PostStudy],
+      language: ["EN", "DE"],
       items: 19,
-      year: 2019
+      year: 2019,
     },
     links: {
       doi: "https://doi.org/10.1016/j.apergo.2017.07.006",
-      git: "https://github.com/moritzkoerber/TiA_Trust_in_Automation_Questionnaire"
+      git: "https://github.com/moritzkoerber/TiA_Trust_in_Automation_Questionnaire",
     },
   },
   {
-    name: 'Usability Metric for User Experience',
-    short: 'UMUX',
+    name: "Usability Metric for User Experience",
+    short: "UMUX",
     metadata: {
-      scales: ['Effectiveness', 'Efficiency', 'Satisfaction'],
-      time: ['Post-Study'],
+      scales: [
+        { name: "Effectiveness" },
+        { name: "Efficiency" },
+        { name: "Satisfaction" },
+      ],
+      time: [Time.PostStudy],
       items: 4,
-      year: 2010
+      year: 2010,
     },
     links: {
       doi: "https://doi.org/10.1016/j.intcom.2010.04.004",
     },
   },
   {
-    name: 'Post-Study-Scenario Questionnaire',
-    short: 'ASQ',
+    name: "Post-Study-Scenario Questionnaire",
+    short: "ASQ",
     metadata: {
-      scales: ['Attractiveness', 'Efficiency', 'Perspicuity'],
-      time: ['Post-Study'],
+      scales: [
+        { name: "Attractiveness" },
+        { name: "Efficiency" },
+        { name: "Perspicuity" },
+      ],
+      time: [Time.PostStudy],
       year: 1991,
-      language: ['EN'],
+      language: ["EN"],
       items: 3,
-      scaleType: 'Likert-7'
+      responseFormat: ResponseFormat.Likert7,
     },
     links: {
-      doi: 'https://doi.org/10.1145/122672.122692',
+      doi: "https://doi.org/10.1145/122672.122692",
     },
   },
   {
-    name: 'NASA Task Load Index',
-    short: 'NASA-TLX',
+    name: "NASA Task Load Index",
+    short: "NASA-TLX",
     metadata: {
-      scales: ['Cognitive Load'],
-      time: ['Post-Study'],
+      scales: [{ name: "Cognitive Load" }],
+      time: [Time.PostStudy],
       year: 1988,
-      language: ['EN'],
-      items: 6
+      language: ["EN"],
+      items: 6,
     },
     links: {
       doi: "https://doi.org/10.1016/s0166-4115(08)62386-9",
-      website: "https://humansystems.arc.nasa.gov/groups/tlx/tlxpaperpencil.php"
+      website:
+        "https://humansystems.arc.nasa.gov/groups/tlx/tlxpaperpencil.php",
     },
   },
   {
-    name: 'AttrakDiff: Ein Fragebogen zur Messung wahrgenommener hedonischer und pragmatischer Qualität',
-    short: 'AttrakDiff',
+    name: "AttrakDiff: Ein Fragebogen zur Messung wahrgenommener hedonischer und pragmatischer Qualität",
+    short: "AttrakDiff",
     metadata: {
-      scales: ['Hedonic', 'Pragmatic'],
-      time: ['Post-Study'],
-      language: ['DE'],
+      scales: [{ name: "Hedonic" }, { name: "Pragmatic" }],
+      time: [Time.PostStudy],
+      language: ["DE"],
       year: 2003,
     },
     links: {
-      doi: 'https://doi.org/10.1007/978-3-322-80058-9_19'
+      doi: "https://doi.org/10.1007/978-3-322-80058-9_19",
     },
   },
   {
-    name: 'Psychological assessment of AI-based decision support systems',
-    short: 'PAAI',
+    name: "Psychological assessment of AI-based decision support systems",
+    short: "PAAI",
     metadata: {
-      scales: ['System Characteristics', 'Task Characteristics', 'Job Characteristics'],
-      time: ['Standalone'],
-      language: ['EN'],
+      scales: [
+        { name: "System Characteristics" },
+        { name: "Task Characteristics" },
+        { name: "Job Characteristics" },
+      ],
+      time: [Time.Standalone],
+      language: ["EN"],
       year: 2023,
     },
     links: {
-      doi: 'https://doi.org/10.3389/frai.2023.1249322'
+      doi: "https://doi.org/10.3389/frai.2023.1249322",
     },
   },
 ];
