@@ -1,24 +1,17 @@
-// Option 1: Concise approach (recommended for simple customizations)
-// 1. Include functions first
 @import "bootstrap/scss/functions";
 
-// 2. Include any default variable overrides here
 $primary: rgb(255, 38, 92);
-$secondary: rgb(134, 134, 134); // Example secondary color
+$secondary: rgba(169, 166, 166, 0.807); // Example secondary color
 
-// 3. Include remainder of required Bootstrap stylesheets
 @import "bootstrap/scss/variables";
 
-// 4. Include any default map overrides here
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
 );
 
-// 5. Include the rest of Bootstrap
 @import "bootstrap";
 
-// 6. Add additional custom code here
 
 // Footer link styles
 footer a {
@@ -29,4 +22,42 @@ footer a {
     color: $primary; // Uses the red primary color
     text-decoration: underline;
   }
+}
+
+// Increase vertical padding for table rows and headers using Bootstrap selector
+.table tr,
+.table th,
+.table td {
+  padding-top: 0.75rem !important; // py-3 = 1rem top/bottom
+  padding-bottom: 0.75rem !important;
+}
+
+// Base callout styles
+.callout {
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid $secondary;
+  background-color: rgba($secondary, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+// Info modifier
+.callout-info {
+  border-color: rgba(#0d6efd, 0.6); // Bootstrap blue
+  background-color: rgba(#0d6efd, 0.2);
+  color: #0c5460;
+}
+
+// Warning modifier
+.callout-warning {
+  border-color: rgba($primary,0.6);
+  background-color: rgba($primary, 0.2);
+  color: #856404;
+}
+
+// Danger modifier
+.callout-danger {
+  border-color: rgba(#dc3545, 0.6);
+  background-color: rgba(#dc3545, 0.2);
+  color: #721c24;
 }

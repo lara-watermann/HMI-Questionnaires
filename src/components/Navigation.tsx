@@ -15,7 +15,7 @@ const Navigation: React.FC = () => {
             height="40"
             className="me-2"
           />
-          HMI Questionnaires
+          <strong>HMI Questionnaires</strong>
         </Link>
 
         <button
