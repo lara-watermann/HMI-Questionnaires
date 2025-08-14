@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Navigation: React.FC = () => {
   const location = useLocation();
-  const base = "/HMI-Questionnaires/";
+  const base = import.meta.env.BASE_URL;
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow">

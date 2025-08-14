@@ -1,4 +1,4 @@
-const base = "/HMI-Questionnaires/";
+const base = import.meta.env.BASE_URL;
 
 export const getIconForLink = (linkType: string): string | null => {
     switch (linkType) {
