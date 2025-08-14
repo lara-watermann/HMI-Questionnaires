@@ -1,1 +1,1 @@
-export type Time = "Pre-Study" | "Post-Study";
+export type Time = "Pre-Study" | "Post-Study" | "Standalone";
