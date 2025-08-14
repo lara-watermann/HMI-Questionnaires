@@ -1,6 +1,4 @@
-import { Time } from './types/Time';
-import { ScaleType } from './types/ScaleType';
-import { Metadata, Questionnaire } from './types/Questionnaire';
+import { Questionnaire } from './types/Questionnaire';
 
 const questionnaires: Questionnaire[] = [
   {
@@ -90,7 +88,7 @@ const questionnaires: Questionnaire[] = [
     short: 'ACIR-Q',
     metadata: {
       scales: ['Social', 'Task', 'Affect'],
-      time: ['Pre-Study'],
+      time: ['Pre-Study', 'Standalone'],
       language: ['DE', 'EN'],
       items: 12,
       year: 2022
@@ -172,7 +170,7 @@ const questionnaires: Questionnaire[] = [
       doi: 'https://doi.org/10.1007/978-3-322-80058-9_19'
     },
   },
-    {
+  {
     name: 'Psychological assessment of AI-based decision support systems',
     short: 'PAAI',
     metadata: {
