@@ -7,7 +7,7 @@ export type Metadata = {
   language?: string[];
   year?: number;
   items?: number;
-  cronbachAlpha?: number;
+  cronbachAlpha?: number[];
   scaleType?: ScaleType;
 };
 
