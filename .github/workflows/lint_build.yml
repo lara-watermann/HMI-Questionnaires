@@ -1,4 +1,4 @@
-name: Lint
+name: Lint and Build
 
 on:
   push:
@@ -29,3 +29,6 @@ jobs:
       - name: Lint Markdown files
         run:
           npx markdownlint-cli "**/*.md" --ignore "node_modules" --ignore "dist"
+
+      - name: Test npm build
+        run: npm run build
