@@ -172,6 +172,20 @@ const questionnaires: Questionnaire[] = [
       doi: 'https://doi.org/10.1007/978-3-322-80058-9_19'
     },
   },
+    {
+    name: 'Psychological Assessment of AI-based Decision Making',
+    short: 'PAAI',
+    metadata: {
+      cronbachAlpha: ['.89']
+      scales: ['Scale 1', 'Scale 2'],
+      time: ['standalone'],
+      language: ['DE','EN'],
+      year: 2023,
+    },
+    links: {
+      doi: 'https://doi.org/10.3389/frai.2023.1249322'
+    },
+  },
 ];
 
 export default questionnaires;
