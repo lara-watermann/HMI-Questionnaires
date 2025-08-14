@@ -173,13 +173,12 @@ const questionnaires: Questionnaire[] = [
     },
   },
     {
-    name: 'Psychological Assessment of AI-based Decision Making',
+    name: 'Psychological assessment of AI-based decision support systems',
     short: 'PAAI',
     metadata: {
-      cronbachAlpha: ['.89']
-      scales: ['Scale 1', 'Scale 2'],
-      time: ['standalone'],
-      language: ['DE','EN'],
+      scales: ['System Characteristics', 'Task Characteristics', 'Job Characteristics'],
+      time: ['Standalone'],
+      language: ['EN'],
       year: 2023,
     },
     links: {
