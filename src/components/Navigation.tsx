@@ -45,16 +45,6 @@ const Navigation: React.FC = () => {
             <li className="nav-item">
               <Link
                 className={`nav-link ${
-                  location.pathname === "/about" ? "active" : ""
-                }`}
-                to="/about"
-              >
-                About
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className={`nav-link ${
                   location.pathname === "/alternatives" ? "active" : ""
                 }`}
                 to="/alternatives"
@@ -65,11 +55,11 @@ const Navigation: React.FC = () => {
             <li className="nav-item">
               <Link
                 className={`nav-link ${
-                  location.pathname === "/credits" ? "active" : ""
+                  location.pathname === "/about" ? "active" : ""
                 }`}
-                to="/credits"
+                to="/about"
               >
-                Credits
+                About
               </Link>
             </li>
           </ul>

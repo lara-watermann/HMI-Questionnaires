@@ -4,7 +4,6 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import QuestionnairesPage from "./pages/QuestionnairesPage";
 import About from "./pages/About";
-import Credits from "./pages/Credits";
 import Alternatives from "./pages/Alternatives";
 
 const App: React.FC = () => {
@@ -15,9 +14,8 @@ const App: React.FC = () => {
         <div className="flex-grow-1">
           <Routes>
             <Route path="/" element={<QuestionnairesPage />} />
-            <Route path="/about" element={<About />} />
             <Route path="/alternatives" element={<Alternatives />} />
-            <Route path="/credits" element={<Credits />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </div>
         <Footer />
