@@ -1,23 +1,6 @@
 import { Time } from './types/Time';
 import { ScaleType } from './types/ScaleType';
-
-type Metadata = {
-  scales: string[];
-  time: Time[];
-  language?: string[];
-  year?: number;
-  items?: number;
-  cronbachAlpha?: number;
-  scaleType?: ScaleType;
-};
-
-type Questionnaire = {
-  name: string;
-  short: string;
-  metadata: Metadata;
-  links?: Record<string, string>;
-  domain?: string[];
-};
+import { Metadata, Questionnaire } from './types/Questionnaire';
 
 const questionnaires: Questionnaire[] = [
   {

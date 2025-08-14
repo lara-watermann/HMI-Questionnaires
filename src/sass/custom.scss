@@ -1,0 +1,32 @@
+// Option 1: Concise approach (recommended for simple customizations)
+// 1. Include functions first
+@import "bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$primary: rgb(255, 38, 92);
+$secondary: rgb(134, 134, 134); // Example secondary color
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+);
+
+// 5. Include the rest of Bootstrap
+@import "bootstrap";
+
+// 6. Add additional custom code here
+
+// Footer link styles
+footer a {
+  color: black;
+  text-decoration: none;
+  
+  &:hover {
+    color: $primary; // Uses the red primary color
+    text-decoration: underline;
+  }
+}
