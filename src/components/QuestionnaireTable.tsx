@@ -1,9 +1,10 @@
 import React from "react";
 import { Questionnaire } from "../types/Questionnaire";
+import { useTheme } from "../hooks/useTheme";
 
 interface QuestionnaireTableProps {
   questionnaires: Questionnaire[];
-  getIconForLink: (linkType: string) => string | null;
+  getIconForLink: (linkType: string, isDarkMode?: boolean) => string | null;
   onQuestionnaireClick: (questionnaire: Questionnaire) => void;
 }
 
@@ -12,11 +13,12 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
   getIconForLink,
   onQuestionnaireClick,
 }) => {
+  const { actualTheme } = useTheme();
   return (
     <div className="">
-      <div className="table-responsive-md rounded overflow-hidden">
+      <div className="table-responsive-md overflow-hidden">
         <table className="table table-hover table-sm mb-0">
-          <thead className="table-dark sticky-top opacity-50 border-0">
+          <thead className=" sticky-top border-0">
             <tr>
               <th className="px-3" style={{ minWidth: "80px" }}>
                 Abbr.
@@ -119,14 +121,14 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
                   </div>
                 </td>
                 <td className="d-none d-sm-table-cell">
-                  <span className="badge bg-light text-dark">
+                  <span className="badge bg-light text-dark opacity-75">
                     {q.metadata.year}
                   </span>
                 </td>
                 <td className="d-none d-md-table-cell">
                   <span className="">{q.metadata.items}</span>
                 </td>
-                <td className="">
+                <td>
                   <div className="d-flex gap-1">
                     {Object.entries(q.links || {})
                       .sort(([aType], [bType]) => aType.localeCompare(bType))
@@ -140,7 +142,12 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
                           onClick={(e) => e.stopPropagation()}
                         >
                           <img
-                            src={getIconForLink(linkType) || ""}
+                            src={
+                              getIconForLink(
+                                linkType,
+                                actualTheme === "dark"
+                              ) || ""
+                            }
                             alt={linkType}
                             style={{ width: "16px", height: "16px" }}
                           />

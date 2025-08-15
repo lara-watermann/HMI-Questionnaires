@@ -137,7 +137,7 @@ const questionnaires: Questionnaire[] = [
   },
   {
     name: "System Acceptance Scale",
-    short: "ACCEPTANCE SCALE",
+    short: "Accept. Scale",
     metadata: {
       scales: [
         {

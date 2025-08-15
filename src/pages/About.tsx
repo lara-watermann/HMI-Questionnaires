@@ -110,16 +110,6 @@ const About: React.FC = () => {
                     .
                   </li>
                   <li>
-                    <a
-                      href="https://www.flaticon.com/free-icons/globe"
-                      title="globe icons"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Globe icons created by srip - Flaticon
-                    </a>
-                  </li>
-                  <li>
                     DOI Logo - Public Domain. Source:{" "}
                     <a
                       href="https://commons.wikimedia.org/wiki/File:DOI_logo.svg#Licensing"
@@ -130,6 +120,19 @@ const About: React.FC = () => {
                     </a>
                   </li>
                   <li>OSF Logo - CC0 1.0 Universal</li>
+                  <li>
+                    <p>
+                      Icons by{" "}
+                      <a href="https://fonts.google.com/icons">
+                        Google Material Icons
+                      </a>
+                      , licensed under{" "}
+                      <a href="https://www.apache.org/licenses/LICENSE-2.0">
+                        Apache License 2.0
+                      </a>
+                      .
+                    </p>
+                  </li>
                 </ul>
               </div>
 

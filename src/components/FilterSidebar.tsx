@@ -65,7 +65,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
   );
 
   return (
-    <div className="p-3 bg-light rounded filter-sidebar">
+    <div className="p-3 rounded filter-sidebar border">
       <div className="d-flex justify-content-between align-items-center">
         {isMobile && (
           <>
@@ -113,16 +113,17 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
               )
               .sort((a, b) => a.localeCompare(b))
               .map((scaleName) => (
-                <span key={scaleName} className="m-1">
-                  <button
-                    type="button"
-                    className={`btn badge p-2 border-0 text-white ${filters.scales.includes(scaleName) ? "bg-primary" : "bg-secondary"} scale-btn`}
-                    onClick={() => onScaleToggle(scaleName)}
-                    aria-pressed={filters.scales.includes(scaleName)}
-                  >
-                    {scaleName}
-                  </button>
-                </span>
+                // <span  className="m-1">
+                <button
+                  key={scaleName}
+                  type="button"
+                  className={`btn badge p-2 border-0 m-1 text-white ${filters.scales.includes(scaleName) ? "bg-primary" : "bg-secondary"}`}
+                  onClick={() => onScaleToggle(scaleName)}
+                  aria-pressed={filters.scales.includes(scaleName)}
+                >
+                  {scaleName}
+                </button>
+                // </span>
               ))}
           </div>
           <button

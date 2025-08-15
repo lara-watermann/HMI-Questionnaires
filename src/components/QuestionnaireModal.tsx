@@ -1,11 +1,12 @@
 import React from "react";
 import { Questionnaire } from "../types/Questionnaire";
+import { useTheme } from "../hooks/useTheme";
 
 interface QuestionnaireModalProps {
   questionnaire: Questionnaire | null;
   isOpen: boolean;
   onClose: () => void;
-  getIconForLink: (linkType: string) => string | null;
+  getIconForLink: (linkType: string, isDarkMode?: boolean) => string | null;
 }
 
 const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
@@ -14,6 +15,8 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
   onClose,
   getIconForLink,
 }) => {
+  const { actualTheme } = useTheme();
+
   if (!isOpen || !questionnaire) {
     return null;
   }
@@ -159,7 +162,12 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                             className="btn btn-primary text-white btn-sm d-flex align-items-center"
                           >
                             <img
-                              src={getIconForLink(linkType) || ""}
+                              src={
+                                getIconForLink(
+                                  linkType,
+                                  actualTheme === "dark"
+                                ) || ""
+                              }
                               alt={linkType}
                               style={{
                                 width: "16px",

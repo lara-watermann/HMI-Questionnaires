@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import QuestionnairesPage from "./pages/QuestionnairesPage";
@@ -8,19 +9,21 @@ import Alternatives from "./pages/Alternatives";
 
 const App: React.FC = () => {
   return (
-    <Router basename="/HMI-Questionnaires">
-      <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
-        <Navigation />
-        <div className="flex-grow-1">
-          <Routes>
-            <Route path="/" element={<QuestionnairesPage />} />
-            <Route path="/alternatives" element={<Alternatives />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
+    <ThemeProvider>
+      <Router basename="/HMI-Questionnaires">
+        <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
+          <Navigation />
+          <div className="flex-grow-1">
+            <Routes>
+              <Route path="/" element={<QuestionnairesPage />} />
+              <Route path="/alternatives" element={<Alternatives />} />
+              <Route path="/about" element={<About />} />
+            </Routes>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </ThemeProvider>
   );
 };
 
