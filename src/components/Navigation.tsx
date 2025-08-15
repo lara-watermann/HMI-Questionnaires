@@ -12,6 +12,19 @@ const Navigation: React.FC = () => {
       data-bs-theme="light"
     >
       <div className="container-fluid">
+        <div className="d-flex ">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
         <Link
           className="navbar-brand d-flex align-items-center text-white"
           to="/"
@@ -25,62 +38,42 @@ const Navigation: React.FC = () => {
           <strong>HMI Questionnaires</strong>
         </Link>
 
-        <div className="flex-grow-1" />
-
-        <div className="navbar-nav justify-content-end">
-          <div className="d-flex align-items-center">
-            <DarkModeToggle />
-
-            <div className="d-flex align-items-center">
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-            </div>
-          </div>
-
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item ">
-                <Link
-                  className={`nav-link text-white ${
-                    location.pathname === "/" ? "active" : ""
-                  }`}
-                  to="/"
-                >
-                  Questionnaires
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className={`nav-link text-white ${
-                    location.pathname === "/alternatives" ? "active" : ""
-                  }`}
-                  to="/alternatives"
-                >
-                  Alternatives
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className={`nav-link text-white ${
-                    location.pathname === "/about" ? "active" : ""
-                  }`}
-                  to="/about"
-                >
-                  About
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <DarkModeToggle />
+        <ul
+          className="collapse navbar-collapse navbar-nav justify-content-end"
+          id="navbarNav"
+        >
+          <li className="nav-item ">
+            <Link
+              className={`nav-link text-white ${
+                location.pathname === "/" ? "active" : ""
+              }`}
+              to="/"
+            >
+              Questionnaires
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              className={`nav-link text-white ${
+                location.pathname === "/alternatives" ? "active" : ""
+              }`}
+              to="/alternatives"
+            >
+              Alternatives
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              className={`nav-link text-white ${
+                location.pathname === "/about" ? "active" : ""
+              }`}
+              to="/about"
+            >
+              About
+            </Link>
+          </li>
+        </ul>
       </div>
     </nav>
   );
