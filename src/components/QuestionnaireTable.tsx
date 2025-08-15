@@ -138,8 +138,9 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
                           href={linkUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="btn btn-sm btn-outline-secondary p-1"
+                          className="btn btn-sm btn-outline-secondary p-1 d-flex align-items-center justify-content-center"
                           onClick={(e) => e.stopPropagation()}
+                          style={{ width: "28px", height: "28px" }}
                         >
                           <img
                             src={
@@ -149,7 +150,12 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
                               ) || ""
                             }
                             alt={linkType}
-                            style={{ width: "16px", height: "16px" }}
+                            style={{
+                              width: "16px",
+                              height: "16px",
+                              display: "block",
+                              margin: "auto",
+                            }}
                           />
                         </a>
                       ))}
