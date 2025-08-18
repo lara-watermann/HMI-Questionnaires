@@ -88,7 +88,7 @@ const questionnaires: Questionnaire[] = [
       scales: [{ name: "Hedonic" }, { name: "Pragmatic" }],
       time: [Time.PostStudy],
       items: 8,
-      responseFormat: ResponseFormat.Likert7,
+      responseFormat: ResponseFormat.SemDiff7,
       year: 2017,
       language: [
         "DE",
@@ -157,7 +157,7 @@ const questionnaires: Questionnaire[] = [
       language: ["EN", "DE", "NL", "SV", "ES", "FR", "IT", "JA"],
       year: 1997,
       items: 9,
-      responseFormat: ResponseFormat.Bipolar5,
+      responseFormat: ResponseFormat.SemDiff5,
     },
     links: {
       doi: "https://doi.org/10.1016/s0968-090x(96)00025-3",

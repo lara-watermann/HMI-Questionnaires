@@ -1,6 +1,6 @@
 export enum ResponseFormat {
-  Likert5 = "Likert-5",
-  Likert7 = "Likert-7",
-  Bipolar5 = "Bipolar-5",
-  Bipolar7 = "Bipolar-7",
+  Likert5 = "5-Point Likert",
+  Likert7 = "7-Point Likert",
+  SemDiff5 = "5-Point Semantic Differential",
+  SemDiff7 = "7-Point Semantic Differential",
 }
