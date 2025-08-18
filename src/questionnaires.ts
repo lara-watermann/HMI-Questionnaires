@@ -34,7 +34,7 @@ const questionnaires: Questionnaire[] = [
       ],
       time: [Time.PostStudy],
       items: 26,
-      responseFormat: ResponseFormat.Likert7,
+      responseFormat: ResponseFormat.SemDiff7,
       year: 2005,
       language: [
         "DE",
