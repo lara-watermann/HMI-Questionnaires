@@ -322,7 +322,24 @@ const questionnaires: Questionnaire[] = [
     name: 'Psychological assessment of AI-based decision support systems',
     short: 'PAAI',
     metadata: {
-      scales: ['System Characteristics', 'Task Characteristics', 'Job Characteristics'],
+      scales: [
+        {
+          name: "System Characteristics",
+          cronbachsAlpha: 0.77-0.88,
+        },
+        {
+          name: "Task Characteristics",
+          cronbachsAlpha: 0.72-0.87,
+        },
+         {
+          name: "Job Characteristics",
+          cronbachsAlpha: 0.88,
+        },
+      ],
+      participantDetails: {
+        n: 471,
+        type: ["Prolific", "UK/US"],
+      },,
       time: ['Standalone'],
       language: ['EN'],
       year: 2023,
