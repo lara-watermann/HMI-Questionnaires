@@ -15,42 +15,19 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
 }) => {
   const { actualTheme } = useTheme();
   return (
-    <div className="">
-      <div className="table-responsive-md overflow-hidden">
+    <div>
+      <div className="table-responsive overflow-hidden">
         <table className="table table-hover table-sm mb-0">
-          <thead className=" sticky-top border-0">
+          <thead className="sticky-top border-0">
             <tr>
-              <th className="px-3" style={{ minWidth: "80px" }}>
-                Abbr.
-              </th>
-              <th style={{ minWidth: "200px" }}>Name</th>
-              <th
-                className="d-none d-md-table-cell"
-                style={{ minWidth: "150px" }}
-              >
-                Scales
-              </th>
-              <th
-                className="d-none d-lg-table-cell"
-                style={{ minWidth: "100px" }}
-              >
-                Time
-              </th>
-              <th
-                className="d-none d-lg-table-cell"
-                style={{ minWidth: "120px", maxWidth: "150px" }}
-              >
-                Languages
-              </th>
-              <th className="d-none d-sm-table-cell " style={{ width: "80px" }}>
-                Year
-              </th>
-              <th className="d-none d-md-table-cell " style={{ width: "80px" }}>
-                Items
-              </th>
-              <th className="" style={{ width: "100px" }}>
-                Links
-              </th>
+              <th>Abbr.</th>
+              <th>Name</th>
+              <th className="d-none d-md-table-cell">Scales</th>
+              <th className="d-none d-lg-table-cell">Time</th>
+              <th className="d-none d-xl-table-cell">Languages</th>
+              <th className="d-none d-sm-table-cell ">Year</th>
+              <th className="d-none d-md-table-cell ">Items</th>
+              <th>Links</th>
             </tr>
           </thead>
           <tbody>
@@ -61,7 +38,7 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
                 className="table-row-clickable"
                 style={{ cursor: "pointer" }}
               >
-                <td className="text-wrap p-3">
+                <td className="text-wrap">
                   <span className="fw-bold text-primary">{q.short}</span>
                 </td>
                 <td>
@@ -77,29 +54,29 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
                   </div>
                 </td>
                 <td className="d-none d-md-table-cell">
-                  <div className="d-flex flex-wrap gap-1">
+                  <div className="d-flex flex-wrap gap-1 my-1">
                     {q.metadata.scales.slice(0, 3).map((scale, index) => (
                       <span
                         key={index}
-                        className="badge bg-secondary text-truncate"
+                        className="badge bg-secondary-transparent text-truncate"
                         style={{ maxWidth: "120px" }}
                       >
                         {scale.name}
                       </span>
                     ))}
                     {q.metadata.scales.length > 3 && (
-                      <span className="badge bg-light text-dark">
+                      <span className="badge bg-secondary-transparent">
                         +{q.metadata.scales.length - 3}
                       </span>
                     )}
                   </div>
                 </td>
-                <td className="d-none d-lg-table-cell text-nowrap">
+                <td className="d-none d-lg-table-cell">
                   <small className="text-muted">
                     {q.metadata.time.join(", ")}
                   </small>
                 </td>
-                <td className="d-none d-lg-table-cell">
+                <td className="d-none d-xl-table-cell">
                   <div style={{ wordWrap: "break-word", hyphens: "auto" }}>
                     <small className="text-muted">
                       {q.metadata.language?.length ? (
@@ -121,12 +98,14 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
                   </div>
                 </td>
                 <td className="d-none d-sm-table-cell">
-                  <span className="badge bg-light text-dark opacity-75">
+                  <span className="badge bg-secondary-transparent">
                     {q.metadata.year}
                   </span>
                 </td>
                 <td className="d-none d-md-table-cell">
-                  <span className="">{q.metadata.items}</span>
+                  <span className="">
+                    <small>{q.metadata.items}</small>
+                  </span>
                 </td>
                 <td>
                   <div className="d-flex gap-1">

@@ -104,7 +104,7 @@ const QuestionnairesPage: React.FC = () => {
   return (
     <div className="container-fluid mt-3">
       <div className="row">
-        <div className="col-12 col-lg-3 p-3">
+        <div className="col-12 col-lg-3">
           <FilterSidebar
             questionnaires={questionnaires}
             search={search}
@@ -117,7 +117,7 @@ const QuestionnairesPage: React.FC = () => {
             onResetAllFilters={handleResetAllFilters}
           />
         </div>
-        <div className="col-12 col-lg-9 p-3">
+        <div className="col-12 col-lg-9">
           <QuestionnaireTable
             questionnaires={filteredQuestionnaires}
             getIconForLink={getIconForLink}

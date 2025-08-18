@@ -21,7 +21,7 @@ export const getIconForLink = (
       return base + (isDarkMode ? "Git-Icon-White.svg" : "Git-Icon-Black.svg");
     case "osf":
       // LICENSE: CC0 1.0 Universal
-      return base + "osf.svg";
+      return base + (isDarkMode ? "osf-white.svg" : "osf.svg");
     default:
       return null;
   }

@@ -113,17 +113,15 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
               )
               .sort((a, b) => a.localeCompare(b))
               .map((scaleName) => (
-                // <span  className="m-1">
                 <button
                   key={scaleName}
                   type="button"
-                  className={`btn badge p-2 border-0 m-1 text-white ${filters.scales.includes(scaleName) ? "bg-primary" : "bg-secondary"}`}
+                  className={`btn badge py-2 px-3 border-0 m-1 ${filters.scales.includes(scaleName) ? "bg-primary text-white" : "bg-secondary-transparent"}`}
                   onClick={() => onScaleToggle(scaleName)}
                   aria-pressed={filters.scales.includes(scaleName)}
                 >
                   {scaleName}
                 </button>
-                // </span>
               ))}
           </div>
           <button

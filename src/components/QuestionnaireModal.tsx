@@ -165,7 +165,7 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                               src={
                                 getIconForLink(
                                   linkType,
-                                  actualTheme === "dark"
+                                  actualTheme === "light"
                                 ) || ""
                               }
                               alt={linkType}
