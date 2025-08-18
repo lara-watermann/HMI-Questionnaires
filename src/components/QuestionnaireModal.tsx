@@ -162,12 +162,7 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                             className="btn btn-primary text-white btn-sm d-flex align-items-center"
                           >
                             <img
-                              src={
-                                getIconForLink(
-                                  linkType,
-                                  actualTheme === "light"
-                                ) || ""
-                              }
+                              src={getIconForLink(linkType, true) || ""}
                               alt={linkType}
                               style={{
                                 width: "16px",
