@@ -1,14 +1,17 @@
 import { Time } from "./Time";
-import { ScaleType } from "./ScaleType";
+import { ResponseFormat } from "./ResponseFormat";
 
 export type Metadata = {
-  scales: string[];
+  scales: Scale[];
+  responseFormat?: ResponseFormat;
   time: Time[];
   language?: string[];
   year?: number;
   items?: number;
-  cronbachAlpha?: number;
-  scaleType?: ScaleType;
+  participantDetails?: {
+    n: number;
+    type: string[];
+  };
 };
 
 export type Questionnaire = {
@@ -17,4 +20,10 @@ export type Questionnaire = {
   metadata: Metadata;
   links?: Record<string, string>;
   domain?: string[];
+  notes?: string[];
+};
+
+export type Scale = {
+  name: string;
+  cronbachsAlpha?: number;
 };

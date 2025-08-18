@@ -80,6 +80,70 @@ const About: React.FC = () => {
                 </a>{" "}
                 for more information on how to contribute.
               </p>
+
+              <h2>Credits</h2>
+              <p>
+                This application uses resources from the following creators and
+                sources:
+              </p>
+
+              <div className="mt-4">
+                <h3>Icons and Graphics</h3>
+                <ul>
+                  <li>
+                    Git Logo by{" "}
+                    <a
+                      href="https://bsky.app/profile/jasonlong.me"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Jason Long
+                    </a>{" "}
+                    is licensed under the{" "}
+                    <a
+                      href="https://creativecommons.org/licenses/by/3.0/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Creative Commons Attribution 3.0 Unported License
+                    </a>
+                    .
+                  </li>
+                  <li>
+                    DOI Logo - Public Domain. Source:{" "}
+                    <a
+                      href="https://commons.wikimedia.org/wiki/File:DOI_logo.svg#Licensing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Wikimedia Commons
+                    </a>
+                  </li>
+                  <li>OSF Logo - CC0 1.0 Universal</li>
+                  <li>
+                    <p>
+                      Icons by{" "}
+                      <a href="https://fonts.google.com/icons">
+                        Google Material Icons
+                      </a>
+                      , licensed under{" "}
+                      <a href="https://www.apache.org/licenses/LICENSE-2.0">
+                        Apache License 2.0
+                      </a>
+                      .
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mt-4">
+                <h3>Institution</h3>
+                <p>
+                  This project is maintained by the Embedded Systems Lab at the
+                  Technische Hochschule Augsburg (THA). Contributions are
+                  welcome!
+                </p>
+              </div>
             </div>
           </div>
         </div>

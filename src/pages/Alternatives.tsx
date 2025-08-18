@@ -17,7 +17,7 @@ const Alternatives: React.FC = () => {
             </div>
             <div className="mt-4">
               <h2>Related Resources</h2>
-              <ul className="m-3">
+              <ul className="m-3" style={{ textAlign: "justify" }}>
                 <li className="mb-3">
                   <strong>German UPA:</strong> A German-only website with
                   similar content can be found at{" "}
@@ -42,7 +42,7 @@ const Alternatives: React.FC = () => {
                     rel="noopener noreferrer"
                     className="text-decoration-none"
                   >
-                    ZIS GESIS
+                    ZIS GESIS{" "}
                   </a>
                   is a free resource that documents and provides tested German,
                   English, and multilingual measurement instruments (items,
@@ -51,6 +51,26 @@ const Alternatives: React.FC = () => {
                   according to established scientific quality standards. It
                   serves as both an archive and a toolbox.{" "}
                 </li>
+                <li className="mb-3">
+                  <strong>
+                    Human Factors, Risk and Safety Research Unit (University of
+                    Bologna):
+                  </strong>{" "}
+                  <a
+                    href="https://site.unibo.it/hfrs/en/questionnaire-and-scales-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-decoration-none"
+                  >
+                    HFRS Questionnaires and Scales{" "}
+                  </a>
+                  provides a collection of questionnaires and scales useful for
+                  researchers in human factors, with a focus on Traffic and
+                  Transport (including driving behavior questionnaires) and
+                  Human-Technology Interaction (including system acceptance and
+                  robot interaction scales). Each questionnaire includes
+                  downloadable materials and detailed properties information.
+                </li>
               </ul>
             </div>
             <div className="mt-4">
@@ -58,13 +78,13 @@ const Alternatives: React.FC = () => {
               <p style={{ textAlign: "justify" }}>
                 These alternative resources can be particularly useful when:
               </p>
-              <ul>
+              <ul style={{ textAlign: "justify" }}>
                 <li>
                   You need questionnaires in specific languages not covered in
                   our database
                 </li>
                 <li>
-                  You're looking for instruments from broader social science
+                  You are looking for instruments from broader social science
                   research areas
                 </li>
               </ul>

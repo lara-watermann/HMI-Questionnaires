@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import questionnaires from "../questionnaires";
 import { Time } from "../types/Time";
+import { Questionnaire } from "../types/Questionnaire";
 import FilterSidebar from "../components/FilterSidebar";
 import QuestionnaireTable from "../components/QuestionnaireTable";
+import QuestionnaireModal from "../components/QuestionnaireModal";
 import { getIconForLink } from "../utils/iconUtils";
 
 type Filters = {
@@ -20,6 +22,9 @@ const QuestionnairesPage: React.FC = () => {
     language: "",
     scaleSearch: "",
   });
+  const [selectedQuestionnaire, setSelectedQuestionnaire] =
+    useState<Questionnaire | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
@@ -57,19 +62,38 @@ const QuestionnairesPage: React.FC = () => {
     setFilters({ ...filters, scales: [] });
   };
 
+  const handleResetAllFilters = () => {
+    setSearch("");
+    setFilters({
+      scales: [],
+      time: "",
+      language: "",
+      scaleSearch: "",
+    });
+  };
+
+  const handleQuestionnaireClick = (questionnaire: Questionnaire) => {
+    setSelectedQuestionnaire(questionnaire);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedQuestionnaire(null);
+  };
+
   const filteredQuestionnaires = questionnaires.filter((q) => {
     const matchesSearch = q.name.toLowerCase().includes(search.toLowerCase());
     const matchesScales = filters.scales.length
-      ? filters.scales.every((factor) => q.metadata.scales.includes(factor))
+      ? filters.scales.every((factor) =>
+          q.metadata.scales.some((scale) => scale.name === factor)
+        )
       : true;
-    let matchesTime: boolean;
-    if (filters.time == "Post-Study") {
-      matchesTime = q.metadata.time?.includes("Post-Study");
-    } else if (filters.time == "Pre-Study") {
-      matchesTime = q.metadata.time?.includes("Pre-Study");
-    } else {
-      matchesTime = true;
-    }
+
+    const matchesTime = filters.time
+      ? q.metadata.time?.includes(filters.time)
+      : true;
+
     const matchesLanguage = filters.language
       ? q.metadata.language?.includes(filters.language)
       : true;
@@ -78,23 +102,35 @@ const QuestionnairesPage: React.FC = () => {
   });
 
   return (
-    <div className="container-fluid">
-      <div className="d-flex">
-        <FilterSidebar
-          questionnaires={questionnaires}
-          search={search}
-          filters={filters}
-          onSearchChange={handleSearch}
-          onFilterChange={handleFilterChange}
-          onScaleSearchChange={handleScaleSearchChange}
-          onScaleToggle={handleScaleToggle}
-          onClearScales={handleClearScales}
-        />
-        <QuestionnaireTable
-          questionnaires={filteredQuestionnaires}
-          getIconForLink={getIconForLink}
-        />
+    <div className="container-fluid mt-3">
+      <div className="row">
+        <div className="col-12 col-lg-3 p-3">
+          <FilterSidebar
+            questionnaires={questionnaires}
+            search={search}
+            filters={filters}
+            onSearchChange={handleSearch}
+            onFilterChange={handleFilterChange}
+            onScaleSearchChange={handleScaleSearchChange}
+            onScaleToggle={handleScaleToggle}
+            onClearScales={handleClearScales}
+            onResetAllFilters={handleResetAllFilters}
+          />
+        </div>
+        <div className="col-12 col-lg-9 p-3">
+          <QuestionnaireTable
+            questionnaires={filteredQuestionnaires}
+            getIconForLink={getIconForLink}
+            onQuestionnaireClick={handleQuestionnaireClick}
+          />
+        </div>
       </div>
+      <QuestionnaireModal
+        questionnaire={selectedQuestionnaire}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        getIconForLink={getIconForLink}
+      />
     </div>
   );
 };

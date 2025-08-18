@@ -1,32 +1,98 @@
-// Option 1: Concise approach (recommended for simple customizations)
-// 1. Include functions first
 @import "bootstrap/scss/functions";
 
-// 2. Include any default variable overrides here
 $primary: rgb(255, 38, 92);
-$secondary: rgb(134, 134, 134); // Example secondary color
+$secondary: rgba(169, 166, 166, 0.656); // Example secondary color
 
-// 3. Include remainder of required Bootstrap stylesheets
 @import "bootstrap/scss/variables";
 
-// 4. Include any default map overrides here
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
 );
 
-// 5. Include the rest of Bootstrap
 @import "bootstrap";
 
-// 6. Add additional custom code here
-
-// Footer link styles
+// Footer link styles - use Bootstrap's semantic color variables
 footer a {
-  color: black;
+  color: var(--bs-body-color);
   text-decoration: none;
   
   &:hover {
-    color: $primary; // Uses the red primary color
+    color: var(--bs-primary);
     text-decoration: underline;
   }
+}
+
+// Use Bootstrap's color-mode mixin for proper dark mode support
+@include color-mode(dark) {
+  // Improve form controls in dark mode
+  .form-control, .form-select {
+    background-color: var(--bs-tertiary-bg);
+    border-color: var(--bs-border-color);
+    color: var(--bs-body-color);
+    
+    &:focus {
+      background-color: var(--bs-tertiary-bg);
+      border-color: var(--bs-primary);
+      color: var(--bs-body-color);
+      box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+    }
+    
+    &::placeholder {
+      color: var(--bs-secondary-color);
+    }
+  }
+}
+
+// Increase vertical padding for table rows and headers using Bootstrap selector
+.table tr,
+.table th,
+.table td {
+  padding-top: 0.75rem !important; // py-3 = 1rem top/bottom
+  padding-bottom: 0.75rem !important;
+}
+
+// Base callout styles using Bootstrap's semantic variables
+.callout {
+  padding: 1rem 1.5rem;
+  border-radius: var(--bs-border-radius);
+  border: 1px solid var(--bs-border-color);
+  background-color: var(--bs-secondary-bg);
+  margin-bottom: 1.5rem;
+  color: var(--bs-body-color);
+}
+
+// Info modifier
+.callout-info {
+  border-color: var(--bs-info-border-subtle);
+  background-color: var(--bs-info-bg-subtle);
+  color: var(--bs-info-text-emphasis);
+}
+
+// Warning modifier
+.callout-warning {
+  border-color: var(--bs-primary-border-subtle);
+  background-color: var(--bs-primary-bg-subtle);
+  color: var(--bs-primary-text-emphasis);
+}
+
+// Danger modifier
+.callout-danger {
+  border-color: var(--bs-danger-border-subtle);
+  background-color: var(--bs-danger-bg-subtle);
+  color: var(--bs-danger-text-emphasis);
+}
+
+.navbar-nav .nav-link.active {
+  font-weight: bold; 
+}
+
+// Force navbar toggler icon to always be white regardless of theme
+.navbar-toggler {
+  border: none;
+}
+
+// Override Bootstrap's navbar toggler icon to always use white stripes
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }

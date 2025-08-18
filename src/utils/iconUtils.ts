@@ -1,22 +1,28 @@
-const base = "/HMI-Questionnaires/";
+const base = import.meta.env.BASE_URL;
 
-export const getIconForLink = (linkType: string): string | null => {
-    switch (linkType) {
-        case "website":
-            // LICENSE: https://www.flaticon.com/free-icon/globe_900782?term=globe&page=1&position=2&origin=search&related_id=900782
-            return base + "globe.png";
-        case "doi":
-            // LICENSE: Public Domain
-            // Source: https://commons.wikimedia.org/wiki/File:DOI_logo.svg#Licensing
-            return base + "doi.svg";
-        case "git":
-            // LICENSE: Creative Commons Attribution 3.0 Unported License
-            // Source: https://git-scm.com/downloads/logos
-            return base + "Git-Icon-Black.svg";
-        case "osf":
-            // LICENSE: CC0 1.0 Universal
-            return base + "osf.svg";
-        default:
-            return null;
-    }
+export const getIconForLink = (
+  linkType: string,
+  isDarkMode?: boolean
+): string | null => {
+  switch (linkType) {
+    case "website":
+      // LICENSE: Apache License 2.0
+      // Source: https://fonts.google.com/icons (Material Icons)
+      return (
+        base + (isDarkMode ? "open_in_new-white.svg" : "open_in_new-black.svg")
+      );
+    case "doi":
+      // LICENSE: Public Domain
+      // Source: https://commons.wikimedia.org/wiki/File:DOI_logo.svg#Licensing
+      return base + "doi.svg";
+    case "git":
+      // LICENSE: Creative Commons Attribution 3.0 Unported License
+      // Source: https://git-scm.com/downloads/logos
+      return base + (isDarkMode ? "Git-Icon-White.svg" : "Git-Icon-Black.svg");
+    case "osf":
+      // LICENSE: CC0 1.0 Universal
+      return base + "osf.svg";
+    default:
+      return null;
+  }
 };
